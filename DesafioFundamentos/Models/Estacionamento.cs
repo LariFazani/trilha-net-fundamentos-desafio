@@ -9,6 +9,7 @@ namespace DesafioFundamentos.Models
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
+            //Atribui o valor do parâmetro ao membro de instância
             this.precoInicial = precoInicial;
             this.precoPorHora = precoPorHora;
         }
@@ -19,7 +20,16 @@ namespace DesafioFundamentos.Models
             // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             placa = Console.ReadLine();
-            veiculos.Add(placa);
+            
+            //Verifica se foi digitada a placa com 7 caracteres
+            if (placa.Length == 7){
+                veiculos.Add(placa);
+                Console.WriteLine("O veículo foi cadastrado com sucesso!");
+            }
+            else
+            {
+                Console.WriteLine("Erro: A placa deve ter exatamente 7 caracteres. Tente novamente.");
+            }
         }
 
         public void RemoverVeiculo()
@@ -28,10 +38,9 @@ namespace DesafioFundamentos.Models
 
             // Pedir para o usuário digitar a placa e armazenar na variável placa
             // *IMPLEMENTE AQUI*
-            string placa = "";
             placa = Console.ReadLine();
 
-            // Verifica se o veículo existe
+            // Verifica se o veículo existe e converte as placas para letras maiúsculas
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper())){
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
                 
@@ -40,6 +49,7 @@ namespace DesafioFundamentos.Models
                 // *IMPLEMENTE AQUI*
                 int horas = 0;
                 decimal valorTotal = 0; 
+                //O método Console.ReadLine() retorna uma string e a variável horas é do tipo int
                 horas = Convert.ToInt32(Console.ReadLine());
                 valorTotal = precoInicial + precoPorHora * horas;
 

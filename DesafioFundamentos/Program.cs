@@ -16,7 +16,9 @@ precoPorHora = Convert.ToDecimal(Console.ReadLine());
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
 
+//A variável opcao é para armazenar a escolha do usuário no menu
 string opcao = string.Empty;
+//O menu deve ser exibido inicialmente
 bool exibirMenu = true;
 
 // Realiza o loop do menu
@@ -48,7 +50,7 @@ while (exibirMenu)
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção inválida! Por favor, escolha uma das opções do menu.");
             break;
     }
 
